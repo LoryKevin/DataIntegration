@@ -65,15 +65,15 @@ class Question():
         question_word, question_flag = [], []
         for w in question_seged:
             temp_word=f"{w.word}/{w.flag}"
-            result.append(temp_word) # result格式为“词/词性”
+            result.append(temp_word)  # result格式为“词/词性”
             # 预处理问题，为后续的预测和查询存储数据
             word, flag = w.word,w.flag
-            question_word.append(str(word).strip()) # 删除头尾空格、/n、/t
+            question_word.append(str(word).strip())  # 删除头尾空格、/n、/t
             question_flag.append(str(flag).strip())
-        assert len(question_flag) == len(question_word)
-        self.question_word = question_word
-        self.question_flag = question_flag
-        print(result)
+        assert len(question_flag) == len(question_word)  # 一一对应
+        self.question_word = question_word  # 词列表
+        self.question_flag = question_flag  # 词性列表
+        print(result)  # 如：'杨国平/nnr','在/p','哪里/r','任职/v'
         return result
 
     def get_question_template(self):
@@ -101,7 +101,7 @@ class Question():
         try:
             answer=self.questiontemplate.get_question_answer(self.pos_quesiton,self.question_template_id_str)
         except:
-            answer="改问题未查询到答案！"
+            answer="这个问题我还不会，换一个试试吧！"
         return answer
 
 

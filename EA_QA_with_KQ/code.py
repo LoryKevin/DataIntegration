@@ -41,7 +41,7 @@ class add:
             answer=dealquestion(question)
             print("得到的答案是：",answer)
             if len(str(answer).strip())==0:
-                answer="我也还不知道呢！"
+                answer="这个问题我还不会，换一个试试吧！"
             print("return answer!")
             return answer
         else:
