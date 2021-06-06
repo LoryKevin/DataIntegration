@@ -12,11 +12,3 @@ class Query():
         for i in find_rela:
             result.append(i.items()[0][1])
         return result
-
-
-
-
-# if __name__ == '__main__':
-#     SQL=Query()
-#     result=SQL.run("match (m:Movie)-[]->() where m.title='卧虎藏龙' return m.rating")
-#     print(result)

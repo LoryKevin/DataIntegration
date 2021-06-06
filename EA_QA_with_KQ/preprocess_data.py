@@ -8,17 +8,6 @@ import jieba.posseg
 import re
 from question_classification import Question_classify
 from question_template import QuestionTemplate
-# # 将自定义字典写入文件
-# result = []
-# with(open("./data/userdict.txt","r",encoding="utf-8")) as fr:
-#     vocablist=fr.readlines()
-#     for one in vocablist:
-#         if str(one).strip()!="":
-#             temp=str(one).strip()+" "+str(15)+" nr"+"\n"
-#             result.append(temp)
-# with(open("./data/userdict2.txt","w",encoding="utf-8")) as fw:
-#     for one in result:
-#         fw.write(one)
 
 import sys, os
 
@@ -29,11 +18,6 @@ def blockPrint():
 # Restore
 def enablePrint():
     sys.stdout = sys.__stdout__
-# blockPrint()
-
-# enablePrint()
-
-
 
 class Question():
     def __init__(self):
@@ -41,18 +25,6 @@ class Question():
         self.init_config()
 
     def init_config(self):
-        # # 读取词汇表
-        # with(open("./data/vocabulary.txt","r",encoding="utf-8")) as fr:
-        #     vocab_list=fr.readlines()
-        # vocab_dict={}
-        # vocablist=[]
-        # for one in vocab_list:
-        #     word_id,word=str(one).strip().split(":")
-        #     vocab_dict[str(word).strip()]=int(word_id)
-        #     vocablist.append(str(word).strip())
-        # # print(vocab_dict)
-        # self.vocab=vocab_dict
-
         # 训练分类器
         self.classify_model=Question_classify()
         # 读取问题模板
@@ -129,8 +101,7 @@ class Question():
         try:
             answer=self.questiontemplate.get_question_answer(self.pos_quesiton,self.question_template_id_str)
         except:
-            answer="我也还不知道！"
-        # answer = self.questiontemplate.get_question_answer(self.pos_quesiton, self.question_template_id_str)
+            answer="改问题未查询到答案！"
         return answer
 
 

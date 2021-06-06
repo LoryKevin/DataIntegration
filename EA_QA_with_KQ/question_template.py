@@ -1,4 +1,3 @@
-
 from query import Query
 import re
 from py2neo import Graph,Node,Relationship,NodeMatcher
@@ -130,7 +129,6 @@ class QuestionTemplate():
     def get_company_pro(self):
         com_name = self.get_company_name()
         peo_name = self.get_peo_name()
-        # 查询电影名称
         cql = f"match(n)-[r]->(m:公司) where m.name='{com_name}' and n.name='{peo_name}' return r.name"
         print(cql)
         answer = self.graph.run(cql)[0]

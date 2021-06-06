@@ -1,10 +1,3 @@
-#-*- coding: UTF-8 -*-
-# @Time    : 2019/3/1 14:43
-# @Author  : xiongzongyang
-# @Site    :
-# @File    : code.py.py
-# @Software: PyCharm
-
 import sys
 import web
 from preprocess_data import Question
